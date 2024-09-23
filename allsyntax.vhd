@@ -476,100 +476,100 @@ package body protected_pkg is
 end package body protected_pkg;
 
 
-    -- Signal initialization
-    signal a : std_logic := '0';
-    signal b : STD_LOGIC_VECTOR(7 downto 0) := "10101010";
+-- Signal initialization
+signal a : std_logic := '0';
+signal b : STD_LOGIC_VECTOR(7 downto 0) := "10101010";
 
-    -- Variable initialization
-    process
-        variable x : integer := 100;
-    begin
-        -- Process body
-    end process;
+-- Variable initialization
+process
+    variable x : integer := 100;
+begin
+    -- Process body
+end process;
 
-    -- Function declaration outside architecture
-    function add(a, b : integer) return integer is
-    begin
-        return a + b;
-    end function add;
+-- Function declaration outside architecture
+function add(a, b : integer) return integer is
+begin
+    return a + b;
+end function add;
 
-    -- Procedure declaration outside architecture
-    procedure reset_signal(signal_in : inout std_logic) is
-    begin
-        signal_in <= '0';
-    end procedure reset_signal;
+-- Procedure declaration outside architecture
+procedure reset_signal(signal_in : inout std_logic) is
+begin
+    signal_in <= '0';
+end procedure reset_signal;
 
-    -- Generic entity instantiation
-    U_generic: entity work.generic_entity
-        generic map (
-            WIDTH => 16
-        )
-        port map (
-            input_signal  => some_input,
-            output_signal => some_output
-        );
+-- Generic entity instantiation
+U_generic: entity work.generic_entity
+    generic map (
+        WIDTH => 16
+    )
+    port map (
+        input_signal  => some_input,
+        output_signal => some_output
+    );
 
-    -- Package instantiation
-    library my_lib;
-    use my_lib.my_package.all;
+-- Package instantiation
+library my_lib;
+use my_lib.my_package.all;
 
-    -- Initializing arrays with initial values
-    type my_array is array (0 to 7) of integer := (others => 0);
-    signal array_signal : my_array := (1, 2, 3, 4, 5, 6, 7, 8);
+-- Initializing arrays with initial values
+type my_array is array (0 to 7) of integer := (others => 0);
+signal array_signal : my_array := (1, 2, 3, 4, 5, 6, 7, 8);
 
-    -- Initializing records
-    signal my_record_inst : my_record := (field1 => "00000000", field2 => "0000000000000000");
+-- Initializing records
+signal my_record_inst : my_record := (field1 => "00000000", field2 => "0000000000000000");
 
-        -- Exit statement in a loop
-            process
-            begin
-                for i in 0 to 10 loop
-                    if i = 5 then
-                        exit; -- Exit the loop when i equals 5
-                    end if;
-                end loop;
-                wait;
-            end process;
-            
-            -- Next statement in a loop
-            process
-            begin
-                for i in 0 to 10 loop
-                    if i = 5 then
-                        next; -- Skip the rest of the loop when i equals 5
-                    end if;
-                    -- Other statements
-                end loop;
-                wait;
-            end process;
-            
-            -- Null statement
-            process
-            begin
-                if condition then
-                    null; -- Do nothing
-                else
-                    -- Other statements
+    -- Exit statement in a loop
+        process
+        begin
+            for i in 0 to 10 loop
+                if i = 5 then
+                    exit; -- Exit the loop when i equals 5
                 end if;
-                wait;
-            end process;
-            
-            -- Using the 'now' system function
-            signal current_time : time;
-            
-            process
-            begin
-                current_time <= now;
-                wait;
-            end process;
-            
-            -- Wait statements with different forms
-            process
-            begin
-                wait for 10 ns;
-                -- Statements after 10 ns delay
-                wait until rising_edge(clk);
-                -- Statements after rising edge
-                wait;
-            end process;
+            end loop;
+            wait;
+        end process;
+        
+        -- Next statement in a loop
+        process
+        begin
+            for i in 0 to 10 loop
+                if i = 5 then
+                    next; -- Skip the rest of the loop when i equals 5
+                end if;
+                -- Other statements
+            end loop;
+            wait;
+        end process;
+        
+        -- Null statement
+        process
+        begin
+            if condition then
+                null; -- Do nothing
+            else
+                -- Other statements
+            end if;
+            wait;
+        end process;
+        
+        -- Using the 'now' system function
+        signal current_time : time;
+        
+        process
+        begin
+            current_time <= now;
+            wait;
+        end process;
+        
+        -- Wait statements with different forms
+        process
+        begin
+            wait for 10 ns;
+            -- Statements after 10 ns delay
+            wait until rising_edge(clk);
+            -- Statements after rising edge
+            wait;
+        end process;
         
